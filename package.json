@@ -1,20 +1,36 @@
 {
-  "private": true,
-  "workspaces": [
-    "reanimated-arc",
-    "example"
+  "name": "@callstack/reanimated-arc",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "Reanimted Arc component that can be used to create circular progress bars with native performance.",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:callstack/reanimated-arc.git"
+  },
+  "keywords": [
+    "react native circular progress",
+    "react native reanimated arc",
+    "react native donut chart",
+    "react native circle"
   ],
-  "devDependencies": {
-    "@callstack/eslint-config": "^9.1.0",
-    "@typescript-eslint/eslint-plugin": "^2.12.0",
-    "@typescript-eslint/parser": "^2.12.0",
-    "eslint": "^6.8.0"
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
-    "postinstall": "yarn --cwd reanimated-arc build",
-    "lint": "eslint reanimated-arc example --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint reanimated-arc example --ext .js,.jsx,.ts,.tsx --fix",
-    "typescript": "yarn --cwd reanimated-arc typescript && yarn --cwd example typescript",
-    "checks": "yarn typescript && yarn lint"
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "typescript": "tsc --noEmit --skipLibCheck",
+    "release": "release-it"
+  },
+  "devDependencies": {
+    "release-it": "^13.5.2"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "react-native-reanimated": "^1.4.0",
+    "react-native-svg": "^12.0.0"
   }
 }
